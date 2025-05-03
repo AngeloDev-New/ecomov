@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class CameraQrPage extends StatefulWidget {
   const CameraQrPage({super.key});
@@ -9,26 +8,7 @@ class CameraQrPage extends StatefulWidget {
 }
 
 class _CameraQrPageState extends State<CameraQrPage> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? controller;
   bool _leu = false;
-
-  @override
-  void dispose() {
-    controller?.dispose();
-    super.dispose();
-  }
-
-  void _onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      if (!_leu) {
-        _leu = true;
-        controller.pauseCamera();
-        Navigator.pop(context, scanData.code); // volta com o valor lido
-      }
-    });
-  }
 
   void _mostrarPopupManual() {
     String codigo = '';
@@ -104,19 +84,14 @@ class _CameraQrPageState extends State<CameraQrPage> {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: SizedBox(
+                  child: Container(
                     width: 300,
                     height: 300,
-                    child: QRView(
-                      key: qrKey,
-                      onQRViewCreated: _onQRViewCreated,
-                      overlay: QrScannerOverlayShape(
-                        borderColor: Colors.blue.shade900,
-                        borderRadius: 20,
-                        borderLength: 30,
-                        borderWidth: 10,
-                        cutOutSize: 300,
-                      ),
+                    color: Colors.black26,
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Scanner desativado',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
