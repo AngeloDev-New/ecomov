@@ -55,16 +55,3 @@ git push origin v0.0.2
 
 * `vX.Y.Z`: versões estáveis.
 * `vX.Y.Z-rcN`: release candidates.
-
-## 📝 Planejamento
-
-### 📌 Planejamento `main`
-
-\[x] prototipo inicial
-
-### 📌 Planejamento `v0.0.1`
-
-\[x] v0.0.1: primeira versão funcional.
-
----
-*Atualizado em: 2025-05-02*
