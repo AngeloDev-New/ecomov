@@ -1,0 +1,38 @@
+name: src
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0-76.0.dev
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # qr_code_scanner: ^1.0.1
+  flutter_map: ^6.0.0
+  flutter_map_cancellable_tile_provider: ^2.0.0
+  latlong2: ^0.9.1
+  camera: ^0.11.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/map_background.png
+    - assets/google_logo.png
+    - assets/user_log.png
+    - assets/seta.png
+    - assets/EcoPonto.png
+    - assets/Veiculo.png
+    - 'assets/bateria_100.png'
+    - 'assets/bateria_75.png'
+    - 'assets/bateria_50.png'
+    - 'assets/bateria_25.png'
+    - 'assets/bateria_0.png'
