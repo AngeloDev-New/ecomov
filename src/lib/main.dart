@@ -1,9 +1,12 @@
-// Dentro de lib/main.dart
-// material principal widgets e janelas dart
 import 'package:flutter/material.dart';
-import 'telas/mapa.dart'; // janela mapa principal
-import 'telas/cadastro.dart'; // janela cadastral
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'telas/mapa.dart'; // Janela mapa principal
+import 'telas/cadastro.dart'; // Janela cadastral
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();  // Inicializa o Firebase
   runApp(const EcoMovApp());
 }
 
@@ -41,6 +44,27 @@ class LoginPage extends StatelessWidget {
       context,
       MaterialPageRoute(builder: (context) => const CadastroPage()),
     );
+  }
+
+  Future<void> _loginComEmailSenha(BuildContext context) async {
+    try {
+      // Aqui você pode pegar os dados de usuário e senha dos TextFields
+      // Para fins de exemplo, vamos utilizar dados fixos
+      String email = "usuario@exemplo.com";
+      String senha = "senha123";
+
+      // Realiza o login com email e senha
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: senha,
+      );
+      _navegarParaMapa(context);  // Após login bem-sucedido, vai para o mapa
+    } catch (e) {
+      // Exibe um alerta se algo deu errado
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Erro ao realizar login')),
+      );
+    }
   }
 
   @override
@@ -98,7 +122,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
-                    onPressed: () => _navegarParaMapa(context),
+                    onPressed: () => _loginComEmailSenha(context), // Login com Email/Senha
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[900],
                       foregroundColor: Colors.white,
@@ -126,7 +150,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   TextButton(
-                    onPressed: () => _navegarParaCadastro(context), // Modificado para navegar para o cadastro
+                    onPressed: () => _navegarParaCadastro(context), // Navegar para o cadastro
                     child: const Text(
                       'Cadastrar',
                       style: TextStyle(color: Colors.white),
