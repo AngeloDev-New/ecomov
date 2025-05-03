@@ -56,26 +56,15 @@ git push origin v0.0.2
 * `vX.Y.Z`: versões estáveis.
 * `vX.Y.Z-rcN`: release candidates.
 
-**Exemplos:**
+## 📝 Planejamento
 
-* `v0.0.1`: primeira versão funcional.
-* `v0.0.2-rc1`: primeiro release candidate da próxima versão.
-* `v0.0.2`: nova versão funcional após merge.
+### 📌 Planejamento `main`
 
----
+\[x] prototipo inicial
 
-## ✅ Exemplo de Planejamento
+### 📌 Planejamento `v0.0.1`
 
-Crie um arquivo `TODO.md` com:
-
-```markdown
-# Planejamento v0.0.2
-
-- [ ] Corrigir bug do botão voltar (issue #12)
-- [ ] Substituir imagem de fundo do mapa
-- [ ] Otimizar carregamento dos assets
-- [ ] Marcar eco-pontos com cor diferente
-```
+\[x] v0.0.1: primeira versão funcional.
 
 ---
 
