@@ -67,23 +67,4 @@ git push origin v0.0.2
 \[x] v0.0.1: primeira versão funcional.
 
 ---
-
-## 🧼 Dicas adicionais
-
-* Sempre rode `git pull` antes de iniciar.
-* Faça `git push` após cada tarefa concluída.
-* Use `git tag` para marcar marcos importantes.
-* Use branches com nomes claros como `0.0.2-rc1`, `0.0.2-feature-x`, etc.
-
----
-
-## 🔁 Evolução futura
-
-Quando o projeto atingir estabilidade:
-
-* Crie ou atualize a branch `main` com o conteúdo de `debug`.
-* Use `dev` como nova base instável, se desejar adotar Git Flow completo.
-
----
-
 *Atualizado em: 2025-05-02*
